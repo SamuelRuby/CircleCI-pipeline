@@ -19,6 +19,11 @@ jobs:
     steps:
       - print_pipeline_id:
           id: << pipeline.id >>
+      - run: exit 1
+      - run:
+          name: on error
+          command: echo "Hello Error!"
+          when: on_fail
 
   print_hello:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
